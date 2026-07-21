@@ -1,0 +1,19 @@
+meta {
+  name: Send Message
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/messages
+  body: json
+  auth: none
+}
+
+script:pre-request {
+  req.setHeader("Authorization", "Bearer " + bru.getVar("token_A"));
+  req.setBody({
+    "recipientId": bru.getVar("userB_id"),
+    "text": "Hey Bob! Let's collab on that track!"
+  });
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Get Messages
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/messages/0?limit=10
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  let baseUrl = bru.getEnvVar("baseUrl") || "http://localhost:8080";
+  let userA = bru.getVar("userA_id");
+  req.setUrl(baseUrl + "/api/messages/" + userA + "?limit=10");
+  req.setHeader("Authorization", "Bearer " + bru.getVar("token_B"));
+}

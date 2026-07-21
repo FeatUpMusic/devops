@@ -1,0 +1,23 @@
+meta {
+  name: Add Comment
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/feed/0/comments
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "text": "This sounds amazing, love the drop!"
+  }
+}
+
+script:pre-request {
+  let baseUrl = bru.getEnvVar("baseUrl") || "http://localhost:8080";
+  req.setUrl(baseUrl + "/api/feed/" + bru.getVar("post_id") + "/comments");
+  req.setHeader("Authorization", "Bearer " + bru.getVar("token_B"));
+}

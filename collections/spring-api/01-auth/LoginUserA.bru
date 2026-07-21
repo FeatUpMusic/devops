@@ -1,0 +1,26 @@
+meta {
+  name: Login User A
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "alias": "{{alias_A}}",
+    "password": "secure_password_A"
+  }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setVar("token_A", res.body.token);
+    bru.setVar("userA_id", res.body.userId);
+    console.log("Token A:", res.body.token);
+  }
+}

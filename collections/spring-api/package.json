@@ -1,0 +1,16 @@
+{
+  "name": "spring-api",
+  "version": "1.0.0",
+  "description": "FeatUp Spring Boot API Contract Tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/@usebruno/cli/bin/cli.js run --env local"
+  },
+  "keywords": [],
+  "author": "Antigravity",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@usebruno/cli": "^3.5.2"
+  }
+}
