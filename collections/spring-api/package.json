@@ -4,7 +4,7 @@
   "description": "FeatUp Spring Boot API Contract Tests",
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/@usebruno/cli/bin/cli.js run --env local"
+    "test": "bru run --env local"
   },
   "keywords": [],
   "author": "Antigravity",
