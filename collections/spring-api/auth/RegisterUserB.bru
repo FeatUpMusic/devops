@@ -1,0 +1,31 @@
+meta {
+  name: Register User B
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/identity/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fullName": "Bob Musician",
+    "alias": "{{alias_B}}",
+    "email": "{{email_B}}",
+    "password": "secure_password_B",
+    "description": "Session guitarist",
+    "mainSkill": "Instrumental",
+    "preferredDaw": "Logic Pro",
+    "genreIds": []
+  }
+}
+
+script:pre-request {
+  // Wait a small bit and generate to ensure unique suffix from user A
+  let suffix = (Date.now() + 10).toString().slice(-6);
+  bru.setVar("alias_B", "bob_" + suffix);
+  bru.setVar("email_B", "bob_" + suffix + "@example.com");
+}

@@ -1,0 +1,11 @@
+meta {
+  name: Get Feed
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/feed?page=0&size=10
+  body: none
+  auth: none
+}
