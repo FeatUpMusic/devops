@@ -2,3 +2,4 @@
 *.log
 results.jtl
 report/
+node_modules/
